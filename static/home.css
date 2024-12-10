@@ -1,0 +1,70 @@
+body {
+    background-color:#efd7d7; /* Cambia "lightblue" por el color que desees */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    margin: 2px; /* Quita márgenes predeterminados */
+  }
+  
+  .navbar {
+    height: 60px; /* Altura fija para la navbar */
+    background-color: #ff5757; /* Color de fondo */
+    flex-shrink: 2px; /* La navbar no debe encoger */
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Permite que el contenido ocupe el resto del espacio */
+    padding: 20px; /* Añade un poco de espacio */
+    
+ }
+  .flex_container  {
+    margin: 50px;
+    
+
+  }
+  .flex_container2 {
+    margin: 50px;
+
+  }
+  .flex_container5 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    list-style: none;
+  }
+  .card {
+    color:#efd7d7;
+    height: 300px;
+    width: 350px;
+    background-color: #ff5757;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease,boxshadow 0.3s;
+  }
+  .responsive-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-img {
+    height: 200px;
+    width: 170px;
+    object-fit: cover;
+    align-items: center;
+  }
+  .inside_button2 {
+    display: inline-block;
+    padding: 0px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    color:#ff5757; /* Color del texto */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    text-align: center; /* Centrado del texto */
+    cursor: pointer; /* Indicador de clic */
+    transition: background-color 0.3s ease; /* Animación al pasar el ratón */
+  }
+  

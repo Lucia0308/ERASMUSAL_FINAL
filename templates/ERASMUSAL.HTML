@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <h1 style="color:lightcoral; text-align: center">ERASMUSAL</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+    <link rel="stylesheet" href="ERASMUSAL.CSS" />
+
+</head>
+
+<body>
+    <header class="Header">
+        <div class="ctn-header">
+            <label class="lbl-header"></label>
+
+        </div>
+    </header>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v21.0"></script>
+     <div class="ctn-data">
+        <p class="p-data">
+            ¡Queremos escuchar tu opinión! 🗨️
+            Tu voz es importante para nosotros. Comparte tus experiencias, ideas o sugerencias sobre [nombre del tema o servicio]. Tus comentarios no solo nos ayudan a mejorar, sino que también inspiran a otros usuarios a descubrir lo que hace especial esta comunidad. 💬
+            
+            ¡Anímate a dejar tu reseña y formar parte de la conversación! 🎉
+            
+            
+         </p>
+         <div class="ctn-lbl-comentar"><label class="lbl-comenter"> ¡AÑADE TU COMENTARIO!</label></div>
+         <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+     </div>
+</body>
+</html>
+
+{% endblock content %}

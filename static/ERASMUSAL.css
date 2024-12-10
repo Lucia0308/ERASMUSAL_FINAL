@@ -1,0 +1,50 @@
+.body {
+  display:grid;
+  background: url('images/imagen_fondo.jpg') no-repeat center center; /* Asegura que la imagen se ajuste correctamente */
+  background-size: cover; /* La imagen cubre toda la pantalla */
+  height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+}
+.navbar {
+  height: 60px; /* Altura fija para la navbar */
+  background-color: #ff5757; /* Color de fondo */
+  flex-shrink: 2px; /* La navbar no debe encoger */
+}
+
+.main-content {
+  flex-grow: 1; /* Permite que el contenido ocupe el resto del espacio */
+  padding: 20px; /* Añade un poco de espacio */
+  
+}
+.header {
+width: 100%;
+height: 40PX;
+background: rgb(33, 148, 231);
+}
+.ctn-hearder {
+width: 100%;
+height: 30px;
+text-align: center;
+}
+.lbl-header {
+font: size 20px;
+}
+.ctn-data {
+width: 90%;
+margin:auto ;
+}
+.p-data {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+padding: 10px;
+background-color: #ff5757;
+
+}
+.ctn-lbl-comentar {
+width:100%;
+text-align: center;
+
+}
+.lbl-comentario {
+font-size: 20px;
+text-shadow: 1px 2px 1px rgb(29, 36, 241);
+}

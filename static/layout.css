@@ -1,0 +1,59 @@
+.logo {
+  
+  display: flex; /* Alinea el texto y la imagen horizontalmente */
+  align-items: center; /* Centra verticalmente los elementos */
+  gap: 10px; /* Espaciado entre la imagen y el texto */
+  margin-left: 50px;
+}
+
+.section_ERASMUSAL_navbar {
+  background-color:#ff5757;
+  position: sticky; /* Hace que la barra de navegación sea sticky */
+  top: 0; /* Se queda pegada al borde superior */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+} 
+   
+.ERASMUSAL_navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 70px;
+  align-items: center;
+  background-color: #ff5757;
+  padding: 0;    
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.navbar{
+  list-style: none;
+  display: flex;
+}
+.button{
+  margin: 20px ;
+}
+.inside_button {
+  display: inline-block;
+  padding: 0px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Fuente en negrita */
+  color:#efd7d7; /* Color del texto */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado */
+  text-align: center; /* Centrado del texto */
+  cursor: pointer; /* Indicador de clic */
+  transition: background-color 0.3s ease; /* Animación al pasar el ratón */
+}
+
+.inside_button:hover {
+  background-color:lightsalmon ; /* Color más oscuro al pasar el ratón */
+}
+
+.inside_button:active {
+  background-color:lightcoral; /* Color aún más oscuro al hacer clic */
+}
+.text-logo{
+  margin-left: 10px;
+}

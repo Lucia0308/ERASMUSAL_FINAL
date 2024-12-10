@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Font Awesome code -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      />
+
+      <!-- CSS code -->
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ url_for('static', filename='layout.css') }}"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ url_for('static', filename='home.css') }}"
+      />  
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ url_for('static', filename='users.css') }}"
+      />  
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>home</title>
+    {% endif %}
+  </head>
+  <body>
+      <section class="section_ERASMUSAL_navbar">
+        <div class="container">
+          <div class="ERASMUSAL_navbar">
+            <h1 class="logo">
+              <span class="text-logo"
+                ><i class="fa-solid fa-paper-plane"></i> ERASMUSAL</span>
+            </h1>
+            </h1>
+            <nav>
+              <ul class="navbar">
+                <li class="button">
+                  <a href="{{url_for('home')}}" class="inside_button">Home</a>
+                </li>
+                <li class="button"> 
+                  <a href="{{url_for('business')}}"class="inside_button">Business</a>
+                </li>
+                <li class="button">
+                  <a href="{{url_for('ERASMUSAL')}}"class="inside_button">ERASMUSAL</a>
+                </li>
+                <li class="button">
+                  <a href="{{url_for('register')}}"class="inside_button">Registro</a>
+                </li>
+              </li>
+              <li class="button">
+                <a href="{{url_for('login')}}"class="inside_button">Iniciar sesión</a>
+              </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+    {% block content %} {% endblock %}
+  </body>
+</html>

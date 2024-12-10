@@ -1,0 +1,290 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 style="color:lightcoral; text-align: center">LLENA DE ACTIVIDADES TU EXPERIENCIA ERASMUS</h1>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cajetas Interactivas</title>
+
+ 
+     <!-- Carga de Leaflet CSS -->
+    </head>
+    <body>
+        <style>
+              /* Estilos generales */
+              body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #efd7d7;
+            }
+
+        </style>
+    <header>
+        <style>
+            
+            /* Contenedor del carrusel */
+            .carousel-container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                overflow: hidden; /* Esconde las cajetas fuera del área visible */
+                margin-top: 20px;
+            }
+
+            /* Carrusel que contiene las cajetas */
+            .carousel {
+                display: flex;
+                gap: 20px;
+                flex-wrap: nowrap; /* Asegura que estén en una fila horizontal */
+                overflow-x: auto; /* Permite desplazarse horizontalmente */
+                scroll-behavior: smooth; /* Desplazamiento suave */
+                padding: 20px;
+            }
+
+            .carousel::-webkit-scrollbar {
+                display: none; /* Esconde la barra de scroll */
+            }
+
+            /* Estilo de cada cajeta */
+            .box {
+                flex: 0 0 auto; /* Evita que las cajetas cambien de tamaño */
+                width: 180px;
+                height: 300px;
+                background-color: #ff5757;
+                color: white;
+                display:center;
+                grid-template-columns:repeat(2,1fr);
+                justify-content: center;
+                margin: 15px;
+                align-items:flex-start;
+                border-radius: 20px;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+                transition: all 0.3s ease-in-out;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+
+            /* Efecto al pasar el cursor */
+            .box:hover {
+                transform: translateY(-10px) scale(1.1);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Estilo para el texto dentro de las cajetas */
+            .box p {
+                margin: 0;
+            }
+            /* Sub-enlaces dentro de las tarjetas */
+            .box .sub-links {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* Sub-enlaces en dos columnas */
+                gap: 10px; /* Espaciado entre sub-enlaces */
+                margin-top: auto; /* Mantener sub-enlaces en la parte inferior */
+            } 
+              .box .sub-links div {
+                font-size: 12px;
+                background-color: #efd7d7; /* Fondo rosado claro */
+                color: #ff5757; /* Texto rojo */
+                padding: 5px 10px;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                
+            }
+            .box .sub-links div:hover {
+                background-color: #ff5757;
+                color: #efd7d7;
+                
+            }
+            /* Botones de navegación */
+            .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 10;
+            }
+            .nav-button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            .nav-left {
+                left: 10px;
+            }
+            .nav-right {
+                right: 10px;
+            }
+        </style>
+        <!-- Contenedor del carrusel -->
+        <div class="carousel-container">
+            <!-- Botón de navegación izquierda -->
+            <button class="nav-button nav-left" onclick="scrollLeft()">&#9664;</button>
+            
+            <!-- Carrusel con las cajetas -->
+            <div class="carousel">
+                <div class="box" onclick="alert('bibliotecas')">
+                    <p>Universidad</p>
+                    <div class="sub-links">
+                    <a href="https://bibliotecas.usal.es/horarios" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Horarios de biblioteca</a>
+                    <a href="https://sci.usal.es/cursos/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Cursos de idiomas - SCI</a>
+                    <a href="https://www.usal.es/becas-y-ayudas-al-estudio" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Becas y ayudas al estudio</a>
+                    <a href="https://causal.usal.es/conferencias-cursos-y-seminarios/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Seminarios</a>
+                    <a href="https://causal.usal.es/congresos/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Congresos</a>
+
+                    </div>
+                </div>
+                <div class="box" onclick="alert('Restaurantes')">
+                    <p>Restaurantes</p>
+                    <div class="sub-links">
+                    <a href="https://www.corteycata.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Corte y cata</a>
+                    <a href="https://www.restauranteoroviejo.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Oroviejo</a>
+                    <a href="https://www.restauranteelpatiocordobes.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">El patio cordobés</a>
+                    <a href="https://www.instagram.com/explore/locations/259710836/bar-la-viga/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">La viga</a>
+                    <a href="https://grupotapas.com/2.0/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Tapas 2.0</a>
+                    <a href="https://restaurantehispania20.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Hispania</a>
+                    <a href="https://nerosalamanca.com/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Nero</a>
+                    <a href="https://oslogastroteca.com/contacto/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Oslo</a>
+
+                    </div>
+                </div>
+                <div class="box" onclick="alert('Ocio Nocturno')">
+                    <p>Ocio Nocturno</p>
+                    <div class="sub-links">
+                        <a href="https://megacotillonsalamanca.com/entradas/mega-cotillon-salamanca-2024/?rp=gusa_y_elena" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Mega cotillón. - NU</a>
+                        <a href="https://www.elcopeodetuvida.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">El Copeo de tu Vida</a>
+                        <a href="https://musicfactory.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Conciertos - Music factory</a>
+                        <a href="https://linktr.ee/camelot_club?fbclid=PAZXh0bgNhZW0CMTEAAaZI4E6JiZ_6_znYKWBthNF48fUroHMVDWvTRtKLiBeFA1jcq0fvzRL8HAw_aem_IFjrVpa5kj7nRqQCoN7bTQ" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Conciertos - Camelot</a>
+                        <a href="https://salapotemkim.com/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Conciertos - Potemkim</a>
+                        <a href="https://thedoctorcocktail.com/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Coctelería</a>
+                        <a href="https://www.instagram.com/barras_usal/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Barras usal</a>
+                        <a href="https://www.salamancadenoche.com/listado_ver.asp?id=30" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Karaoke</a>
+
+                    </div>    
+                </div>
+                <div class="box" onclick="alert('Excursiones')">
+                    <p>Excursiones</p>
+                    <div class="sub-links">
+                        <a href="https://www.helmantour.com/erasmus/?fbclid=PAY2xjawG1I49leHRuA2FlbQIxMAABpqt8dD_HqUBOYyrfPgIrDPa5U-abOT6xQj0wCogeV9fcrHweFNmSGaZQsQ_aem_uGGyFIG24OnS4RrPVFeDdg" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Helmantour - Excursiones</a>
+                        <a href="https://chat.whatsapp.com/FvxewQ4sPyJ8nKa2toLEV2?fbclid=PAY2xjawG1JFpleHRuA2FlbQIxMQABpnv4ieWo3aN5gTD0U-z2c800vOnCIvL6O5UBqy9JfSV1Pr2usCDiL_ewGA_aem_BrjgKETbUBK4quuUgn_cwg" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Viajes a Marruecos</a>
+                        <a href="https://viajeconpablo.com/pozo-de-los-humos/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Ruta al pozo de los Humos</a>
+                        <a href="https://www.casasierrasalamanca.com/camino-asentadero-bosque-de-los-espejos-sequeros-casas-del-conde-san-martin-del-castanar" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Bosque de los Espejos</a>
+                        <a href="https://www.yeahsalamanca.com/segovia-y-Avila-trip-9-de-febrero-del-2025.html" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Segovia y Ávila</a>
+                        <a href="https://www.yeahsalamanca.com/toledo-trip23-de-febrero.html" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Toledo</a>
+                        <a href="https://deportes.usal.es/montanismo-y-senderismo-programa-curso-2023-2024/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Montañismo y senderismo</a>
+
+                    </div>   
+                </div>
+                <div class="box" onclick="alert('Actividades de Interés')">
+                    <p>Actividades de Interés</p>
+                    <div class="sub-links">
+                    <a href="https://freetoursalamanca.tours/free-tour-salamanca-monumental/?msclkid=a158ca00984e1889263bad4729d7a663" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Free tour</a>
+                    <a href="https://ieronimus.es/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Ieronimus</a>
+                    <a href="https://www.museocasalis.org/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Museo casa Lis</a>
+                    <a href="https://sac.usal.es/cielo/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">El cielo de Salamanca</a>
+                    <a href="https://salamancavivela.es/big-jump-park-el-parque-hinchable-mas-divertido-del-mundo-ya-esta-en-el-centro-comercial-el-tormes/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Big Jump Park</a>
+                    <a href="https://salamancavivela.es/imprescindibles-cinco-zonas-naturales-de-bano-en-la-provincia-de-salamanca/" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Zonas de baño</a>
+                    <a href="https://salamanca.es/es/destacados/citas-de-interes/item/11319-lunes-de-aguas" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">Lunes de Aguas</a>
+                    <a href="https://www.ciudaddecultura.org/es/noticias/noticia/senda-animales-hielo-huerto" target="_blank" class="inside_button2", style="background-color:#f3c0c0; height:50px ;width: 70px;">La senda de los animales de hielo</a>
+
+                    </div>
+    </header>
+<!-- Mapa interactivo -->
+    <main id="map">
+     <style>
+            
+    #mapa {
+    display: flex;
+    justify-content: center; /* Centra el mapa horizontalmente */
+    margin-top: 20px; /* Espaciado respecto a las cajetas */
+     }
+
+     #map {
+    height: 300px; /* Altura más pequeña */
+    width: 80%; /* Ancho ajustado */
+    max-width: 600px; /* Tamaño máximo para pantallas grandes */
+    border-radius: 15px; /* Bordes redondeados */
+    border: 2px solid #ff6b6b; /* Borde opcional con color */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto elegante */
+    align-self: center;
+    }
+     </style>
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+        
+        <div id="map"></div>
+
+         
+   
+    </main>
+            <!-- Botón de navegación derecha -->
+            <button class="nav-button nav-right" onclick="scrollRight()">&#9654;</button>
+        </div>
+
+        <!-- Script para controlar los botones de desplazamiento -->
+        <script>
+            const carousel = document.querySelector('.carousel');
+
+            function scrollLeft() {
+                carousel.scrollBy({
+                    left: -200, // Cantidad de desplazamiento hacia la izquierda
+                    behavior: 'smooth'
+                });
+            }
+
+            function scrollRight() {
+                carousel.scrollBy({
+                    left: 200, // Cantidad de desplazamiento hacia la derecha
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+
+        <!-- Carga de Leaflet JS -->
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            // Inicialización del mapa
+            const map = L.map('map').setView([40.9618, -5.6669], 13); // Coordenadas de Salamanca
+    
+            // Añadir capa base de OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+    
+            // Marcadores de ejemplo
+            const markers = [
+                { coords: [40.9607, -5.6688], text: 'Universidad de Salamanca' },
+                { coords: [40.9642, -5.6639], text: 'Corte y Cata Restaurante' },
+                { coords: [40.96515688431191, -5.664664262579861], text: 'Nero' },
+                { coords: [40.96388239946363, -5.662702452859918], text: 'Bar la Viga' },
+                { coords: [40.9632, -5.6702], text: 'Museo Casa Lis' },
+                { coords: [40.961524505366924, -5.668263677923701], text: 'El cielo de Salamanca' },
+                { coords: [41.217639067593794, -6.570422362562585], text: 'El Pozo de los Humos' },
+                { coords: [40.9656, -5.6625], text: 'Ieronimus' },
+                { coords: [40.96646956143047, -5.663592069039588], text: 'The Doctor Cocktail' },
+                { coords: [40.96630118044422, -5.666578247236187], text: 'Sala Camelot' }
+
+            ];
+    
+            markers.forEach(marker => {
+                L.marker(marker.coords).addTo(map).bindPopup(marker.text);
+            });
+        </script>
+    </body>
+    </html>
+{% endblock content %}
